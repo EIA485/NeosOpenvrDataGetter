@@ -57,8 +57,9 @@ namespace OpenvrDataGetter
                     thread = new Thread(readLoop);
                     thread.Start();
                 }
-                catch
+                catch(Exception e)
                 {
+                    UniLog.Log(e);
                     Fail(ErrorCode.UnknownException);
                     return;
                 }
@@ -89,8 +90,9 @@ namespace OpenvrDataGetter
             {
                 thread.Abort();
             }
-            catch
+            catch (Exception e)
             {
+                UniLog.Log(e);
                 Fail(ErrorCode.UnknownException);
                 return;
             }
@@ -144,8 +146,10 @@ namespace OpenvrDataGetter
                     Thread.Sleep(10);
                 }
             }
-            catch
+            catch (Exception e)
             {
+                UniLog.Log(e);
+
                 thread = null;
                 World.RunSynchronously(() =>
                 {
