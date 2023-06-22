@@ -2,8 +2,22 @@
 
 A plugin for [Neos VR](https://neos.com/) that allows you get Gyro and Accel data from openvr devices.
 
-##adds
+## adds
 - ImuReader under `LogiX/Input Devices`
+	- `DevicePath` string input
+	- `OnOpened` impulse
+	- `isOpened` bool output
+	- `OnFail` impulse
+	- `FailReason` ErrorCode output
+	- `OnData` impulse
+	- `fSampleTime` double output
+	- `vAccel` double3 output
+	- `vGyro` double3 output
+	- `unOffScaleFlags` Imu_OffScaleFlags output
+
+
+
+
 
 ## Installation
 1. Place [OpenvrDataGetter.dll](https://github.com/eia485/NeosOpenvrDataGetter/releases/latest/download/OpenvrDataGetter.dll) into your `Libraries` folder. This folder should be at `C:\Program Files (x86)\Steam\steamapps\common\NeosVR\Libraries` for a default install.
