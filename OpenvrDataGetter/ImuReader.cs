@@ -40,6 +40,11 @@ namespace OpenvrDataGetter
                 Fail(ErrorCode.PathIsNullOrEmpty);
                 return;
             }
+            if(OpenVR.IOBuffer == null)
+            {
+                Fail(ErrorCode.OpenVrNotFound);
+                return;
+            }
             if (pulBuffer == 0)
             {
                 try
@@ -193,6 +198,7 @@ namespace OpenvrDataGetter
             AlreadyClosed,
             UnknownException,
             PathIsNullOrEmpty,
+            OpenVrNotFound,
             IOBuffer_OperationFailed = 100,
             IOBuffer_InvalidHandle = 101,
             IOBuffer_InvalidArgument = 102,
