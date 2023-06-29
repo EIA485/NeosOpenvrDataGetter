@@ -119,7 +119,10 @@ namespace OpenvrDataGetter
                     uint punRead = new();
                     unsafe
                     {
-                        failReason = OpenVR.IOBuffer.Read(pulBuffer, new(&samples), (uint)sizeof(ImuSample_t) * arraySize, ref punRead);
+                        fixed (ImuSample_t* pSamples = samples) 
+                        {
+                            failReason = OpenVR.IOBuffer.Read(pulBuffer, (IntPtr)pSamples, (uint)sizeof(ImuSample_t) * arraySize, ref punRead); 
+                        }
                     }
                     if (failReason != EIOBufferError.IOBuffer_Success)
                     {
