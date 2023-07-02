@@ -151,7 +151,7 @@ namespace OpenvrDataGetter
                             unOffScaleFlags.Value = 0;
                         });
                     }
-                    Thread.Sleep(10);
+                    if(unreadSize == 0) Thread.Sleep(10);
                 }
             }
             catch (Exception e)
