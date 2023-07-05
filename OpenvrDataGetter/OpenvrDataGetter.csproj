@@ -48,6 +48,13 @@
     <Compile Include="ActivityLevelOfIndex.cs" />
     <Compile Include="Converter.cs" />
     <Compile Include="DeviceProperty.cs" />
+    <Compile Include="DevicePropertyArray.cs" />
+    <Compile Include="DevicePropertyArrayBase.cs" />
+    <Compile Include="DevicePropertyArrayBool.cs" />
+    <Compile Include="DevicePropertyArrayFloat.cs" />
+    <Compile Include="DevicePropertyArrayFloat4.cs" />
+    <Compile Include="DevicePropertyArrayInt.cs" />
+    <Compile Include="DevicePropertyArrayMatrix3x4.cs" />
     <Compile Include="DevicePropertyBool.cs" />
     <Compile Include="DevicePropertyFloat3.cs" />
     <Compile Include="DevicePropertyFloat.cs" />

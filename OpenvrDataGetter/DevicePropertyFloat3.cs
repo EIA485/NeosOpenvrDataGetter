@@ -10,7 +10,7 @@ namespace OpenvrDataGetter
         {
             get
             {
-                ETrackedPropertyError error = ETrackedPropertyError.TrackedProp_Success; //its not clear the proper way to read vec3 props. this spit out reasonable data
+                ETrackedPropertyError error = ETrackedPropertyError.TrackedProp_Success; //its not clear the proper way to read vec3 props. this spits out reasonable data
                 var Float3 = new float3[1];
                 unsafe
                 {
