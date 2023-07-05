@@ -8,7 +8,7 @@ using System;
 namespace OpenvrDataGetter
 {
 
-    [Category(new string[] { "LogiX/Input Devices/" })]
+    [Category(new string[] { "LogiX/Add-Ons/OpenvrDataGetter" })]
     public class ImuReader : LogixNode, IDisposable
     {
         public readonly Input<string> DevicePath;
@@ -139,8 +139,8 @@ namespace OpenvrDataGetter
                         World.RunSynchronously(() =>
                         {
                             fSampleTime.Value = sample.fSampleTime;
-                            vAccel.Value = HmdVector3ToDobble3(sample.vAccel);
-                            vGyro.Value = HmdVector3ToDobble3(sample.vGyro);
+                            vAccel.Value = Converter.HmdVector3ToDobble3(sample.vAccel);
+                            vGyro.Value = Converter.HmdVector3ToDobble3(sample.vGyro);
                             unOffScaleFlags.Value = (Imu_OffScaleFlags)sample.unOffScaleFlags;
 
                             OnData.Trigger();
@@ -168,12 +168,7 @@ namespace OpenvrDataGetter
                 pulBuffer = 0;
             }
         }
-
-        double3 HmdVector3ToDobble3(HmdVector3d_t vec) //they are both the same struct. i should do some trickery with mem so i dont need to aloc a new double3
-        {
-            return new(vec.v0, vec.v1, vec.v2);
-        }
-
+        
         void IDisposable.Dispose()
         {
             if (thread != null)

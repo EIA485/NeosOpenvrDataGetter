@@ -45,8 +45,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityLevelOfIndex.cs" />
+    <Compile Include="Converter.cs" />
+    <Compile Include="DeviceProperty.cs" />
+    <Compile Include="DevicePropertyBool.cs" />
+    <Compile Include="DevicePropertyFloat3.cs" />
+    <Compile Include="DevicePropertyFloat.cs" />
+    <Compile Include="DevicePropertyInt.cs" />
+    <Compile Include="DevicePropertyMatrix3x4.cs" />
+    <Compile Include="DevicePropertyString.cs" />
+    <Compile Include="DevicePropertyUlong.cs" />
+    <Compile Include="RoleOfIndex.cs" />
+    <Compile Include="GetTrackedDeviceClass.cs" />
     <Compile Include="ImuReader.cs" />
+    <Compile Include="IndexOfRole.cs" />
+    <Compile Include="IsIndexConnected.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrackedDeviceData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
