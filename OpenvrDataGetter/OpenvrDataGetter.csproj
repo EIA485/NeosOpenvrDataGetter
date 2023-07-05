@@ -56,7 +56,7 @@
     <Compile Include="DevicePropertyString.cs" />
     <Compile Include="DevicePropertyUlong.cs" />
     <Compile Include="RoleOfIndex.cs" />
-    <Compile Include="GetTrackedDeviceClass.cs" />
+    <Compile Include="ClassOfIndex.cs" />
     <Compile Include="ImuReader.cs" />
     <Compile Include="IndexOfRole.cs" />
     <Compile Include="IsIndexConnected.cs" />

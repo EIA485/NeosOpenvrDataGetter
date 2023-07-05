@@ -2,7 +2,7 @@
 
 namespace OpenvrDataGetter
 {
-    class GetTrackedDeviceClass : TrackedDeviceData<ETrackedDeviceClass>
+    class ClassOfIndex : TrackedDeviceData<ETrackedDeviceClass>
     {
         public override ETrackedDeviceClass Content => OpenVR.System.GetTrackedDeviceClass(Index.Evaluate());
     }
