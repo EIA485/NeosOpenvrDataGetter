@@ -1,5 +1,6 @@
 ﻿using FrooxEngine.LogiX;
 using FrooxEngine;
+
 namespace OpenvrDataGetter
 {
     [Category(new string[] { "LogiX/Add-Ons/OpenvrDataGetter" })]

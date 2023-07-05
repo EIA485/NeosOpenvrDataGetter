@@ -1,4 +1,5 @@
 ﻿using Valve.VR;
+
 namespace OpenvrDataGetter
 {
     class ActivityLevelOfIndex : TrackedDeviceData<EDeviceActivityLevel>
