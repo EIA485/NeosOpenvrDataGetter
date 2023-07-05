@@ -35,7 +35,7 @@ all nodes under Add-Ons/OpenvrDataGetter
 	- `Index` uint input
 	- bool output
 
-- GetTrackedDeviceClass
+- ClassOfIndex
 	- `Index` uint input
 	- ETrackedDeviceClass output
 
