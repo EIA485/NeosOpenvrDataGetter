@@ -7,17 +7,20 @@ namespace OpenvrDataGetter
 {
     public abstract class DevicePropertyArrayBase<T, P, R> : DeviceProperty<R, P> where T : unmanaged where P : Enum
     {
-        public readonly Input<long> ArrIndex;
-        protected P DefaultValue = (P)Enum.GetValues(typeof(P)).GetValue(0);
+        public readonly Input<uint> ArrIndex;
+        static protected P DefaultValue = (P)Enum.GetValues(typeof(P)).GetValue(0);
         int structSize = Marshal.SizeOf<T>();
-        protected virtual R Caster(T apiVal) => (R)(object)apiVal;
+        static protected uint trueIndexFactor = 1;
+        protected virtual R Reader(T[] apiVal, uint arrindex) => (R)(object)apiVal[arrindex];
         public override R Content
         {
             get
             {
                 var arrindex = ArrIndex.Evaluate();
-                if (arrindex < 0) return default(R);
-                var length = arrindex + 1;
+                if (arrindex == uint.MaxValue) return default(R);
+                var length = (arrindex/trueIndexFactor) + 1;
+                var memsize = length * structSize;
+                if (memsize >= uint.MaxValue) return default(R);
                 var devindex = Index.Evaluate();
                 var prop = (ETrackedDeviceProperty)(object)Prop.Evaluate(DefaultValue);
                 ETrackedPropertyError error = ETrackedPropertyError.TrackedProp_Success;
@@ -27,10 +30,10 @@ namespace OpenvrDataGetter
                 {
                     fixed (T* ptr = arr)
                     {
-                        OpenVR.System.GetArrayTrackedDeviceProperty(devindex, prop, 0, (IntPtr)ptr, (uint)(length * structSize), ref error);
+                        OpenVR.System.GetArrayTrackedDeviceProperty(devindex, prop, 0, (IntPtr)ptr, (uint)memsize, ref error);
                     }
                 }
-                return Caster(arr[arrindex]);
+                return Reader(arr, arrindex);
             }
         }
     }

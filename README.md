@@ -24,7 +24,7 @@ all nodes under Add-Ons/OpenvrDataGetter
 - DevicePropertyArray[Bool, Float, Float4, Int, Matrix3x4]
 	- `Prop` [type]DeviceProperty input
 	- `Index` uint input
-	- `ArrIndex` long input
+	- `ArrIndex` uint input
 	- [type] output
 
 - IsIndexConnected

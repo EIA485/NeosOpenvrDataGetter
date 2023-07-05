@@ -2,8 +2,16 @@
 
 namespace OpenvrDataGetter
 {
-    public class DevicePropertyArrayBool : DevicePropertyArray<bool, BoolArrayDeviceProperty>
+    public class DevicePropertyArrayBool : DevicePropertyArrayBase<byte, BoolArrayDeviceProperty, bool>
     {
+        protected override bool Reader(byte[] apiVal, uint arrindex)
+        {
+            return (apiVal[arrindex / 8] & (byte)(1 << (int)(arrindex % 8))) != 0;
+        }
+        static DevicePropertyArrayBool()
+        {
+            trueIndexFactor = 8;
+        }
     }
 
     public enum BoolArrayDeviceProperty
