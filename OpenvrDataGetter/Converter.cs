@@ -1,5 +1,6 @@
 ﻿using BaseX;
 using Valve.VR;
+using UnityEngine;
 
 namespace OpenvrDataGetter
 {
@@ -16,6 +17,16 @@ namespace OpenvrDataGetter
                         matrix.m4, matrix.m5, matrix.m6, matrix.m7,
                         matrix.m8, matrix.m9, matrix.m10, matrix.m11,
                         0, 0, 0, 0);
+        }
+
+        public static float3 UnityVec3ToFLoat3(Vector3 vec)
+        {
+            return new(vec.x, vec.y, vec.z);
+        }
+        
+        public static floatQ UnityQuatToFloatQ(Quaternion quat)
+        {
+            return new(quat.x, quat.y, quat.z, quat.w);
         }
     }
 }
